@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<application
+			type="server-application"
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="http://www.m-files.com/schemas/appdef-server-v1.xsd">
+  <guid>0F2B45EE-0DDE-4DAF-90B9-5BEAFD91F462</guid>
+  <name>ExcitechDOCS.Revision</name>
+  <description>ExcitechDOCS Revision</description>
+  <publisher>Excitech Ltd.</publisher>
+  <version>1.0.0.0</version>
+  <copyright></copyright>
+  <extension-objects>
+    <extension-object>
+      <name>ExcitechDOCS.Revision</name>
+      <assembly>ExcitechDOCS.Revision.dll</assembly>
+      <class>ExcitechDOCS.Revision.VaultApplication</class>
+      <installation-method>Install</installation-method>
+      <uninstallation-method>Uninstall</uninstallation-method>
+      <initialization-method>Initialize</initialization-method>
+      <uninitialization-method>Uninitialize</uninitialization-method>
+      <start-operations-method>StartOperations</start-operations-method>
+    </extension-object>
+  </extension-objects>
+</application>
