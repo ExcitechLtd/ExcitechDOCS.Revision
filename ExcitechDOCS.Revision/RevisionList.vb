@@ -1,13 +1,38 @@
 ﻿Public Class RevisionList
     Inherits List(Of DocumentRevision)
 
-    Public Function GetMostRecent(RevisionID As String, Count As Integer, includeInternalRev As Boolean) As List(Of DocumentRevision)
+    'Public Function GetMostRecent(RevisionID As String, Count As Integer, includeInternalRev As Boolean) As List(Of DocumentRevision)
+
+    '    Dim _sr As New IO.StreamWriter("c:\temp\revision.log")
+    '    _sr.WriteLine("RevisionId = " & RevisionID)
+    '    _sr.WriteLine("Count = " & Count)
+    '    _sr.WriteLine("IncludeInternalRev = " & includeInternalRev)
+
+    '    Return MyBase.Where(Function(_dr)
+    '                            If includeInternalRev Then
+    '                                '' _sr.WriteLine("Found: " & _dr.RevisionID.ToString & " this is includeinternalrev: " & includeInternalRev)
+    '                                Return _dr.RevisionID.StartsWith(RevisionID)
+    '                            Else
+    '                                '' _sr.WriteLine("Found: " & _dr.RevisionID.ToString & " this is includeinternalrev: " & includeInternalRev)
+    '                                Return _dr.RevisionID.StartsWith(RevisionID) And Not _dr.RevisionID.Contains(".")
+    '                            End If
+    '                        End Function).OrderBy(Function(_dr)
+    '                                                  Return _dr.ApproveDate
+    '                                              End Function).Take(Count).ToList
+
+    '    _sr.Dispose()
+
+    'End Function
+
+    Public Function GetMostRecent(RevisionID As String, Count As Integer, includeInternalRev As Boolean, wasShared As Boolean) As List(Of DocumentRevision)
 
         Return MyBase.Where(Function(_dr)
-                                If includeInternalRev Then
-                                    Return _dr.RevisionID.StartsWith(RevisionID)
+                                If Not includeInternalRev Then
+                                    '' _sr.WriteLine("Found: " & _dr.RevisionID.ToString & " this is includeinternalrev: " & includeInternalRev)
+                                    Return _dr.RevisionID.StartsWith(RevisionID) And _dr.WasShared = wasShared
                                 Else
-                                    Return _dr.RevisionID.StartsWith(RevisionID) And Not _dr.RevisionID.Contains(".")
+                                    '' _sr.WriteLine("Found: " & _dr.RevisionID.ToString & " this is includeinternalrev: " & includeInternalRev)
+                                    Return _dr.RevisionID.StartsWith(RevisionID) And Not _dr.RevisionID.Contains(".") And _dr.WasShared = wasShared
                                 End If
                             End Function).OrderBy(Function(_dr)
                                                       Return _dr.ApproveDate
@@ -18,14 +43,18 @@
     Public Function GetAll(RevisionID As String, includeInternalRev As Boolean) As List(Of DocumentRevision)
 
         Return MyBase.Where(Function(_dr)
-                                If includeInternalRev Then
+                                If Not includeInternalRev Then
+                                    ''_sr.WriteLine("Found: " & _dr.RevisionID.ToString & " this is includeinternalrev: " & includeInternalRev)
                                     Return _dr.RevisionID.StartsWith(RevisionID)
                                 Else
+                                    ''_sr.WriteLine("Found: " & _dr.RevisionID.ToString & " this is includeinternalrev: " & includeInternalRev)
                                     Return _dr.RevisionID.StartsWith(RevisionID) And Not _dr.RevisionID.Contains(".")
                                 End If
                             End Function).OrderBy(Function(_dr)
                                                       Return _dr.ApproveDate
                                                   End Function).ToList
+
+
 
     End Function
 

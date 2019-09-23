@@ -1,0 +1,30 @@
+﻿body,html {
+    font-family:Segoe UI, Tahoma, Arial, sans-serif;
+    overflow: hidden;
+    font-size: 8pt;
+    margin: 0;
+    height:100%;
+    background-color:#fafafa;
+}
+
+th {
+    text-align: left;
+    font-weight: normal;
+    font-size: 10pt;
+}
+
+.results {
+    float: left;
+    margin-top: 5px;
+    font-size: 8pt;
+}
+
+.filter {
+    float: right;
+    margin-top: 5px;
+    font-size: 8pt;
+}
+
+.cdeLink {
+    cursor: pointer;
+}

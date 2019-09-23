@@ -22,7 +22,7 @@ Public Class VaultApplication
         Return jsonStr
     End Function
 
-    Public Function GetRevisionDetails(jsonStr As String, RevisionID As String, count As Integer, includeInternalRev As Boolean) As RevisionList
+    Public Function GetRevisionDetails(jsonStr As String, RevisionID As String, count As Integer, includeInternalRev As Boolean, wasShared As Boolean) As RevisionList
 
         Dim _revList As New RevisionList
         _revList = RevisionList.DeSeraliseRevisionList(jsonStr)
@@ -31,7 +31,7 @@ Public Class VaultApplication
         If count <= -1 Then
             _mostRecent.AddRange(_revList.GetAll(RevisionID, includeInternalRev))
         Else
-            _mostRecent.AddRange(_revList.GetMostRecent(RevisionID, count, includeInternalRev))
+            _mostRecent.AddRange(_revList.GetMostRecent(RevisionID, count, includeInternalRev, wasShared))
             Dim _pad As Integer = count - _mostRecent.Count
             For _p As Integer = 0 To _pad - 1
                 _mostRecent.Add(Nothing)

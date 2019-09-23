@@ -93,7 +93,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client Extension\appdef.xml" />
+    <Content Include="Client Extension\css\datatables.css" />
+    <Content Include="Client Extension\css\Revision.css" />
     <Content Include="Client Extension\dashboards\Revisions.html" />
+    <Content Include="Client Extension\images\Revision_24.png" />
+    <Content Include="Client Extension\images\Revision_64.png" />
+    <Content Include="Client Extension\scripts\datatables.min.js" />
+    <Content Include="Client Extension\scripts\jquery-3.2.1.min.js" />
+    <Content Include="Client Extension\scripts\moment.js" />
+    <Content Include="Client Extension\scripts\Revisions.js" />
     <Content Include="Client Extension\shellmain.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -127,6 +135,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Client Extension\scripts\EX.DataTables.js" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -144,11 +153,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Client Extension\css\" />
-    <Folder Include="Client Extension\images\" />
-    <Folder Include="Client Extension\scripts\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

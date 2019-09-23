@@ -259,3 +259,6 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/ExcitechDOCS.Revision/ExcitechDOCS.Revision.HelpFile.pdf
+/ExcitechDOCS.Revision/HelpFile/ExcitechDOCS.Revision.HelpFile.pdf
+/ExcitechDOCS.Revision/HelpFile/ExcitechDOCS.Revision.HelpFile.docx

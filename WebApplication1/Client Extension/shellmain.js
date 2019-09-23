@@ -7,7 +7,7 @@ function OnNewShellUI(shellUI) {
 
     // Register to listen new shell frame creation event.
     shellUI.Events.Register(Event_NewNormalShellFrame, newShellFrameHandler);
-    m_shellUI = shellUI;
+    _shellUI = shellUI;
 }
 
 function newShellFrameHandler(shellFrame) {
@@ -46,6 +46,9 @@ function newShellListingHandler(shellListing) {
 }
 
 //region " Event Handlers "
+function selectedItemsChangedHandler(selectedItems) {
+    selectionChangedHandler(selectedItems);
+}
 
 function selectionChangedHandler(selectedItems) {
 
@@ -66,14 +69,22 @@ function WorkflowTabAvailability(selectedItems) {
     var objVerProps = selectedItems.ObjectVersionsAndProperties[0];
 
     //ensure Workflow and State set
-    var jsonProp = objVerProps.properties.SearchForPropertyByAlias(Vault, "HESIMM.Property.Revision.JSON", true)
+    var jsonProp = objVerProps.properties.SearchForPropertyByAlias(_shellUI.Vault, "HESIMM.Property.Revision.JSON", true)
     if (jsonProp == null) { m_workflowTab.visible = false; return; }
 
-    m_workflowTab.ShowDashboard("DocumentRevision", jsonProp);
+    var objectTitle = selectedItems.ObjectVersionsAndProperties[0].VersionData.Title;
+
+    var customData = {
+        jsonStr: jsonProp.GetValueAsLocalizedText(),
+        selectedItem: selectedItems.ObjectVersionsAndProperties,
+        Title: objectTitle,
+        Version: objVer.Version
+    }
+
+    m_workflowTab.ShowDashboard("DocumentRevision", customData);
     m_workflowTab.visible = true;
     return;
 
-    }
 }
 //end region
 
