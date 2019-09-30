@@ -29,7 +29,7 @@
     End Property
 
     Public Function GetAsString() As String
-        Return RevisionID + "|" + Amendment + "|" + CheckedBy + "|" + CheckedDate.ToString + "|" + ApproveBy + "|" + ApproveDate.ToString + "|" + WasShared
+        Return RevisionID + "|" + Amendment + "|" + CheckedBy + "|" + CheckedDate.ToString + "|" + ApproveBy + "|" + ApproveDate.ToString + "|" + WasShared.ToString
     End Function
 End Class
 

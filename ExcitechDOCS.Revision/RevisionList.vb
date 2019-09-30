@@ -34,9 +34,9 @@
                                     '' _sr.WriteLine("Found: " & _dr.RevisionID.ToString & " this is includeinternalrev: " & includeInternalRev)
                                     Return _dr.RevisionID.StartsWith(RevisionID) And Not _dr.RevisionID.Contains(".") And _dr.WasShared = wasShared
                                 End If
-                            End Function).OrderBy(Function(_dr)
-                                                      Return _dr.ApproveDate
-                                                  End Function).Take(Count).ToList
+                            End Function).OrderByDescending(Function(_dr)
+                                                                Return _dr.ApproveDate
+                                                            End Function).Take(Count).ToList
 
     End Function
 
@@ -50,9 +50,9 @@
                                     ''_sr.WriteLine("Found: " & _dr.RevisionID.ToString & " this is includeinternalrev: " & includeInternalRev)
                                     Return _dr.RevisionID.StartsWith(RevisionID) And Not _dr.RevisionID.Contains(".")
                                 End If
-                            End Function).OrderBy(Function(_dr)
-                                                      Return _dr.ApproveDate
-                                                  End Function).ToList
+                            End Function).OrderByDescending(Function(_dr)
+                                                                Return _dr.ApproveDate
+                                                            End Function).ToList
 
 
 
@@ -91,5 +91,9 @@
 
         MyBase.Add(Revision)
     End Sub
+
+    Public Function IsNothing(itemIndex As Integer) As Boolean
+        Return MyBase.Item(itemIndex) Is Nothing
+    End Function
 
 End Class
