@@ -1,12 +1,27 @@
 ﻿Imports MFiles.VAF
 Imports MFiles.VAF.Common
+Imports MFiles.VAF.Configuration
 Imports MFilesAPI
 
 Public Class VaultApplication
     Inherits VaultApplicationBase
 
 #Region " Constructor "
+    Public Sub New()
+        Try
+            Dim licDecoder As New LicenseDecoder(LicenseDecoder.EncMode.TwoKey)
 
+            ' This Is from the key file (MainKey.PublicXml).
+            licDecoder.MainKey = "<RSAKeyValue><Modulus>vlZb42AyJpzUMFjN295gUMNT/hoo2/I8WkCmx/ujBFJw35+xO8vReGYBMlzjyRNFzgN7Ghbzqsnl9OfxB9Uvta8UDkxjcLEfblCsnHKpQDMcnBxB4DTczIpAUOYbYuy4/MQyC5GrCH2/PeFE99HRTH6yHH7jNahHUw6PNE2pmg0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue>"
+
+            ' This Is from the key file (SecondKey.SecretXml)
+            licDecoder.AltKey = "<RSAKeyValue><Modulus>vlq5h/JFBH39OxquCWp0Brnm6WQMtqHWEQcw9x34+p6WzrvaUKtkCUb+RmY+lhCgcqN1lRmdTs9oZdUaYsVvaPIhuhh5v3YePtdBa/xvv06yuXo2zhRGeaodE4RMN1WkA9ZAUs9YLDQUn/uBm3ZVcmMKHENEvJuILQMz0snPuK0=</Modulus><Exponent>AQAB</Exponent><P>/L41pq6bS3ku9N6iUwXS0k4dMz5W5xPcsCoF6B/gsE51AIqEU+UsojI7DTGAFHq5l+U1JXOpZ0FgargllI+3Xw==</P><Q>wM6ygSaGluse89L8KsXWt9jBW1aQ0Z82uTTWRAdA+ZZm2MfjrkXHl5DNmikRu7Ynbu5G2ypYPPnesAxBIbtHcw==</Q><DP>LmqwZ8BBfQbwfMA2h5DWOxFlg3e7dgzLxv6wvwS7uyVtj3/g9ZdtLwySk8W3hAtV8nOB4zLutavoDTFslXAfeQ==</DP><DQ>Wt5PpKyqi+AeA13xeJsrGhRu9IQ01oaJ/PmY7hDZH4gxyoNSm+TJL3aQX9JxSB2OMircfBhV488Dk8cCv0oLXw==</DQ><InverseQ>bFj/g3A0KMfRiK0szYKMzJRBPB+nIB6t5sRHQ7UjgSm+Y2XQPztnowFBVUG3aZ0YNrtUIxhOvGxptFhJzEhQYA==</InverseQ><D>ZwVY9h+DhOve+nb1C/mGNAG23EeerdUmsu6ObJ/XGWRtQBPhEtm/eVnn0hgR9UuoWoLm5zwGrBmKadqMvjoWkeeeR4USwomqD6A9Sb0pdvJ5spDmfXLAco3FpNRatcDO4wh7hyFmQK6EK/+KZSl7DwS2N8P60qN3CidK7lYd9i0=</D></RSAKeyValue>"
+
+            License = New LicenseManagerBase(Of LicenseContentBase)(licDecoder)
+        Catch ex As Exception
+
+        End Try
+    End Sub
 #End Region
 
 #Region " Extension Methods "
@@ -41,42 +56,6 @@ Public Class VaultApplication
         Return _mostRecent
     End Function
 
-
-    'Public Sub SaveDocumentRevision(objVer As ObjVer, Revision As DocumentRevision)
-    '    Dim _revList As RevisionList = GetObjVerRevisions(objVer)
-    '    _revList.Add(Revision)
-    '    Dim _jsonStr As String = RevisionList.SeraliseRevisionList(_revList)
-    '    ''for now to test just save to a file
-    '    Using _sw As New IO.StreamWriter("c:\temp\document.revision", False)
-    '        _sw.WriteLine(_jsonStr)
-    '    End Using
-    'End Sub
-
-    'Public Function GetObjVerRevisions(objver As ObjVer) As RevisionList
-    '    Dim _revList As New RevisionList
-    '    Dim _jsonStr As String = ""
-
-    '    If IO.File.Exists("c:\temp\document.revision") Then _jsonStr = IO.File.ReadAllText("c:\temp\document.revision")
-    '    _revList = RevisionList.DeSeraliseRevisionList(_jsonStr)
-
-    '    ''load the seralised data and return the revision list
-    '    If _revList Is Nothing Then _revList = New RevisionList
-    '    Return _revList
-    'End Function
-
-    'Public Function GetMostRecentRevisionDetails(objver As ObjVer, RevisionID As String, count As Integer, includeInternalRev As Boolean) As RevisionList
-    '    Dim _revList As RevisionList = GetObjVerRevisions(objver)
-    '    Dim _mostRecent As New RevisionList
-    '    _mostRecent.AddRange(_revList.GetMostRecent(RevisionID, count, includeInternalRev))
-
-    '    Dim _pad As Integer = count - _mostRecent.Count
-    '    For _p As Integer = 0 To _pad - 1
-    '        _mostRecent.Add(Nothing)
-    '    Next
-
-    '    Return _mostRecent
-    'End Function
-
     Public Function GetRevisionObject() As DocumentRevision
         Return New DocumentRevision
     End Function
@@ -97,6 +76,18 @@ Public Class VaultApplication
     End Sub
 
     Public Overrides Sub StartOperations(vaultPersistent As Vault)
+        License.Evaluate(vaultPersistent, False)
+
+        ' Output the license status.
+        Select Case License.LicenseStatus
+            Case MFApplicationLicenseStatus.MFApplicationLicenseStatusTrial
+                EventLog.WriteEntry("ExcitechDOCS Document Revision", "Extranet Application is running in a trial mode", EventLogEntryType.Information)
+            Case MFApplicationLicenseStatus.MFApplicationLicenseStatusValid
+                EventLog.WriteEntry("ExcitechDOCS Document Revision", "Extranet Application is licensed", EventLogEntryType.Information)
+            Case Else
+                EventLog.WriteEntry("ExcitechDOCS Document Revision", $"Extranet Application license is in an unexpected state: {License.LicenseStatus}.", EventLogEntryType.Error)
+        End Select
+
         MyBase.StartOperations(vaultPersistent)
     End Sub
 #End Region
