@@ -22,7 +22,7 @@
         <WixVariable Id="WixUIDialogBmp" Value="Images\Installer_Background.bmp" />
         <WixVariable Id="WixUILicenseRtf" Value="InstallFiles\LicenseRTF\license-agreement.rtf" />
         <Binary Id="ExcitechIcon" SourceFile="Images\Excitech.ico" />
-        <Binary Id="WixCustomSetupActions.CA.dll" SourceFile="..\WixCustomSetupActions\bin\Debug\WixCustomSetupActions.CA.dll" />
+        <Binary Id="WixCustomSetupActions.CA.dll" SourceFile="..\WixCustomSetupActions\bin\$(var.Configuration)\WixCustomSetupActions.CA.dll" />
         <UIRef Id="WixUI_FeatureTree" />
         <Icon Id="Help.ico" SourceFile="Images\Help.ico" />
         <Feature Id="featureDocRevision" Description="Server Document Revision Application" Title="Document Revision History" Level="1">
