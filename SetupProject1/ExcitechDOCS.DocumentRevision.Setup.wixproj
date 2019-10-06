@@ -6,10 +6,11 @@
     <ProductVersion>3.9</ProductVersion>
     <ProjectGuid>cfc54404-5cd9-4981-995b-aa802d93dddb</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>SetupProject1</OutputName>
+    <OutputName>ExcitechDOCS.DocumentRevision.Setup</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
+    <Name>ExcitechDOCS.DocumentRevision.Setup</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
@@ -25,6 +26,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images" />
+    <Folder Include="InstallFiles" />
+    <Folder Include="InstallFiles\HelpFile" />
+    <Folder Include="InstallFiles\Images" />
+    <Folder Include="InstallFiles\LicenseRTF" />
+    <Folder Include="InstallFiles\ServerApplication" />
+    <Folder Include="InstallFiles\Revit Modules" />
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixUtilExtension">
@@ -49,6 +56,19 @@
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
       <RefTargetDir>INSTALLFOLDER</RefTargetDir>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Excitech.ico" />
+    <Content Include="Images\Help.ico" />
+    <Content Include="Images\Installer_Background.bmp" />
+    <Content Include="Images\Installer_Top_Banner.bmp" />
+    <Content Include="InstallFiles\HelpFile\ExcitechDOCS Document Revision.chm" />
+    <Content Include="InstallFiles\Images\Excitech.ico" />
+    <Content Include="InstallFiles\Images\Help.ico" />
+    <Content Include="InstallFiles\Images\Installer_Background.bmp" />
+    <Content Include="InstallFiles\Images\Installer_Top_Banner.bmp" />
+    <Content Include="InstallFiles\LicenseRTF\license-agreement.rtf" />
+    <Content Include="InstallFiles\ServerApplication\ExcitechDOCS.Application.Installer.exe" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />

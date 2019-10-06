@@ -7,7 +7,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExcitechDOCS.Revision", "Ex
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExcitechDOCS.Revision.Client", "WebApplication1\ExcitechDOCS.Revision.Client.vbproj", "{ABF5E646-9DF1-4147-98B0-51B67151737A}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "SetupProject1", "SetupProject1\SetupProject1.wixproj", "{CFC54404-5CD9-4981-995B-AA802D93DDDB}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ExcitechDOCS.DocumentRevision.Setup", "SetupProject1\ExcitechDOCS.DocumentRevision.Setup.wixproj", "{CFC54404-5CD9-4981-995B-AA802D93DDDB}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CustomAction", "WixCustomSetupActions\CustomAction.vbproj", "{C536DDF7-31B9-45AC-864B-C9E890FC9E94}"
 EndProject
