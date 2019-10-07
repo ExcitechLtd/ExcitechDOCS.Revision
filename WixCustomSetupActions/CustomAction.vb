@@ -69,8 +69,8 @@
 
         Using _sw As New IO.StreamWriter(filePath, True)
             If Not loadfile.Contains("MSCORLIB") Then _sw.WriteLine("mscorlib")
-            If Not loadfile.Contains("SYSTEM") Then _sw.WriteLine("system")
-            If Not loadfile.Contains("SYSTEM.CORE") Then _sw.WriteLine("system.core")
+            If Not loadfile.Contains("SYSTEM") Then _sw.WriteLine("System")
+            If Not loadfile.Contains("SYSTEM.CORE") Then _sw.WriteLine("System.Core")
             If Not loadfile.Contains(dllPath.ToUpperInvariant) Then _sw.WriteLine(dllPath)
         End Using
 
