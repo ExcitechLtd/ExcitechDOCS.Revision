@@ -114,6 +114,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Helpfile\DocumentRevision.hnd" />
+    <None Include="LIC File\DMS Document Revision.lic" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
