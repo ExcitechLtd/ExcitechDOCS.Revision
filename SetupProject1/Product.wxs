@@ -25,13 +25,13 @@
         <Binary Id="WixCustomSetupActions.CA.dll" SourceFile="..\WixCustomSetupActions\bin\$(var.Configuration)\WixCustomSetupActions.CA.dll" />
         <UIRef Id="WixUI_FeatureTree" />
         <Icon Id="Help.ico" SourceFile="Images\Help.ico" />
-        <Feature Id="featureDocRevision" Description="Server Document Revision Application" Title="Document Revision History" Level="1">
+        <Feature Id="featureDocRevision" Description="Server Document Revision Application. Server side processing only." Title="Revision History (Server Only)" Level="1">
             <ComponentRef Id="compServerapp" />
         </Feature>
         <Feature Id="featureDocumentation" Description="Document Revision History HelpFile" Level="1" Title="Documentation">
             <ComponentRef Id="compHelpfile" />
         </Feature>
-        <Feature Id="featureRevitModules" Description="Document Revision Modules for Revit Add-In" Level="1" Title="Revit Modules">
+        <Feature Id="featureRevitModules" Description="Document Revision Modules for Revit Add-In. Client side processing only." Level="1" Title="Revit Modules (Client only)">
             <ComponentRef Id="compRevit" />
         </Feature>
         <Directory Id="TARGETDIR" Name="SourceDir">
