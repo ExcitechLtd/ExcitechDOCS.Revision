@@ -2,7 +2,7 @@
 <PublishSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <VaultConnectionName>Projects</VaultConnectionName>
   <ClassID>90</ClassID>
-  <Company>Excitech Ltd.</Company>
+  <Company>Excitech Ltd</Company>
   <Project>90028 - Excitech DOCS</Project>
   <DocumentCategory>Software</DocumentCategory>
   <Title>Excitech DOCS Document Revision</Title>
