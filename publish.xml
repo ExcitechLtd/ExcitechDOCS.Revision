@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PublishSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <VaultConnectionName>Projects</VaultConnectionName>
+  <ClassID>90</ClassID>
+  <Company>Excitech Ltd.</Company>
+  <Project>90028 - Excitech DOCS</Project>
+  <DocumentCategory>Software</DocumentCategory>
+  <Title>Excitech DOCS Document Revision</Title>
+  <Description></Description>
+  <Revision>1.0.0.0</Revision>
+  <SoftwareStatus>Testing</SoftwareStatus>
+  <Notes>
+    <string>Server\Revit Modules</string>
+    <string>Install via Setup MSI</string>
+    <string>Please see help file for more information</string>
+    <string></string>
+    <string>Supports Revit Scripting</string>
+    <string>  Revit Scripting Requies Revit Addin V4.1.33 or higher</string>
+    <string>Includes VAF server Application</string>
+    <string></string>
+  </Notes>
+  <NoficationRecipients>dms.team@excitech.co.uk</NoficationRecipients>
+</PublishSettings>
