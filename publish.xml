@@ -18,10 +18,9 @@
     <string>  Revit Scripting Requies Revit Addin V4.1.33 or higher</string>
     <string>Includes VAF server Application</string>
     <string></string>
-    <string>Fixed:</string>
-    <string>  Updated screenshots in the help file</string>
-    <string>  Updated install features descriptions to clearly show Server and Client components</string>
-    <string>  Resolved incorrect version number on client application</string>   
+    <string>New:</string>
+    <string>  Change scripting calls to remove automatic sorting</string>
+    <string>  Add in Enums and additional script calls to sort the returned values</string>
   </Notes>
   <NoficationRecipients>dms.team@excitech.co.uk</NoficationRecipients>
 </PublishSettings>
