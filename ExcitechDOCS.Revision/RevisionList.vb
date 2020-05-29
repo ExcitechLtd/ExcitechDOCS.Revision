@@ -107,7 +107,6 @@
         '    ApproveDate
         'End Enum
 
-        Debugger.Launch()
 
         Select Case sortOrder.ToUpperInvariant
             Case "ASC"
@@ -155,14 +154,11 @@
                         End Function)
         End Select
 
-        Debugger.Break()
 
     End Sub
 
     Public Sub GetTopRevisions(revisionCount As Integer)
         Dim _newList As New List(Of DocumentRevision)
-
-        Debugger.Break()
 
         _newList = Me.Take(revisionCount).ToList
 
