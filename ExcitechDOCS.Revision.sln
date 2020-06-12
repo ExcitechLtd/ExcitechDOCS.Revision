@@ -11,6 +11,8 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ExcitechDOCS.DocumentRevisi
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CustomAction", "WixCustomSetupActions\CustomAction.vbproj", "{C536DDF7-31B9-45AC-864B-C9E890FC9E94}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Tester", "Tester\Tester.vbproj", "{4BC59428-8986-4FC1-B447-1482DCB157F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,14 @@ Global
 		{C536DDF7-31B9-45AC-864B-C9E890FC9E94}.Release|Any CPU.ActiveCfg = Release|x86
 		{C536DDF7-31B9-45AC-864B-C9E890FC9E94}.Release|x86.ActiveCfg = Release|x86
 		{C536DDF7-31B9-45AC-864B-C9E890FC9E94}.Release|x86.Build.0 = Release|x86
+		{4BC59428-8986-4FC1-B447-1482DCB157F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BC59428-8986-4FC1-B447-1482DCB157F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BC59428-8986-4FC1-B447-1482DCB157F1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4BC59428-8986-4FC1-B447-1482DCB157F1}.Debug|x86.Build.0 = Debug|Any CPU
+		{4BC59428-8986-4FC1-B447-1482DCB157F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BC59428-8986-4FC1-B447-1482DCB157F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BC59428-8986-4FC1-B447-1482DCB157F1}.Release|x86.ActiveCfg = Release|Any CPU
+		{4BC59428-8986-4FC1-B447-1482DCB157F1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

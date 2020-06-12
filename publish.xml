@@ -18,9 +18,8 @@
     <string>  Revit Scripting Requies Revit Addin V4.1.33 or higher</string>
     <string>Includes VAF server Application</string>
     <string></string>
-    <string>New:</string>
-    <string>  Change scripting calls to remove automatic sorting</string>
-    <string>  Add in Enums and additional script calls to sort the returned values</string>
+    <string>Fixes:</string>
+    <string>  Incorrect Revit dll Version installed</string>
   </Notes>
   <NoficationRecipients>dms.team@excitech.co.uk</NoficationRecipients>
 </PublishSettings>
